@@ -1,11 +1,16 @@
 table{
     position: relative;
-    top: 800px; left: 200px;
+    top: 15px; left: 150px;
 }
 
 input{
 height: 80px;
             width: 120px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.script{
+    height: 480px;
+            width: 630px;
 }
