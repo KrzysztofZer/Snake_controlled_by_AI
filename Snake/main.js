@@ -2,80 +2,50 @@ var offsetX = 15;
 var offsetY = 15;
 var diameter = 30;
 var score = 0;
+var snakeDiraction = 'r';
+var time =0;
+var speed = 100;
 
 var snake = [];
 var wall;
 
 function setup(){
-	createCanvas(640, 480);
+	createCanvas(630, 480);
     snake.push(createSprite(offsetX,offsetY,diameter,diameter));
     createWall();
     snake[0].shadowColor = color(255)
     fill(255);
+
+
 }
 
 function draw(){
         background(50);
     text(score,620,15);   
     drawSprites();
+           if (millis() - time >= speed)
+    {
+    snakeMoves();
+    time = millis();
+    }
 }
 
 function keyPressed(){
-if (keyCode === RIGHT_ARROW && offsetX<=610){
-offsetX = offsetX+30;
-    for (var i=snake.length-1; i>=0;i--){
-        if (i===0){
-            snake[0].position = createVector(offsetX, offsetY);}
-        else{
-            snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
-        }
-        
-    }
-
-checkValidation();
+if (keyCode === RIGHT_ARROW){
+    snakeDiraction = 'r';
 }
 
-if (keyCode === LEFT_ARROW && offsetX>=30){
-    offsetX = offsetX-30;
-    snake[0].position = createVector(offsetX, offsetY);
-     for (var i=snake.length-1; i>=0;i--){
-        if (i===0){
-            snake[0].position = createVector(offsetX, offsetY);}
-        else{
-            snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
-        }
-        
-    }
+if (keyCode === LEFT_ARROW){
+        snakeDiraction = 'l';
 
-    checkValidation();
 }
     
-if (keyCode === DOWN_ARROW && offsetY<=450){
-    offsetY = offsetY+30;
-snake[0].position = createVector(offsetX,offsetY);
-     for (var i=snake.length-1; i>=0;i--){
-        if (i===0){
-            snake[0].position = createVector(offsetX, offsetY);}
-        else{
-            snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
-        }
-        
-    }
-    checkValidation();
+if (keyCode === DOWN_ARROW){
+        snakeDiraction = 'd';
 }
     
-if (keyCode === UP_ARROW && offsetY>=30){
-        offsetY = offsetY-30;
-snake[0].position = createVector(offsetX,offsetY);
-     for (var i=snake.length-1; i>=0;i--){
-        if (i===0){
-            snake[0].position = createVector(offsetX, offsetY);}
-        else{
-            snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
-        }
-        
-    }
-    checkValidation();
+if (keyCode === UP_ARROW){
+        snakeDiraction = 'u';
 }}
 
 function checkValidation (){
@@ -110,4 +80,89 @@ function snakeEnd(){
         snake[i].remove();
         snake.pop();
     }    
+}
+//Snake moving right
+function moveRight(){
+    if(snake[0].position.x>614){
+        offsetX = 15;
+        oneMove();
+   }
+                
+    else{  
+        offsetX = offsetX+30;
+        oneMove();
+    }
+
+checkValidation();
+}
+
+//Snake moving left
+function moveLeft(){
+    if(snake[0].position.x<15){
+    offsetX = 615;
+    oneMove();
+    }
+    
+    else{
+    offsetX = offsetX-30;
+    oneMove();
+    }
+
+    checkValidation();
+}
+
+//Snake moving up
+function moveUp(){
+            if(snake[0].position.y<15){
+                        offsetY = 475;
+     oneMove();
+            }
+    
+    else{
+    offsetY = offsetY-30;
+    oneMove();
+    }
+    
+    checkValidation();
+}
+
+//Snake moving down
+function moveDown(){
+if(snake[0].position.y>464){
+    offsetY = 15;
+    oneMove();
+}
+    
+else{
+    offsetY = offsetY+30;
+    oneMove();
+}
+        
+    checkValidation();
+}
+
+//Snake automatic moves
+function snakeMoves(){
+    if (snakeDiraction === 'r'){
+        moveRight();
+    }
+    if (snakeDiraction === 'l'){
+        moveLeft();
+    }
+    if (snakeDiraction === 'u'){
+        moveUp();
+    }
+    if (snakeDiraction === 'd'){
+        moveDown();
+    }
+}
+
+function oneMove(){
+     for (var i=snake.length-1; i>=0;i--){
+        if (i===0){
+            snake[0].position = createVector(offsetX, offsetY);}
+        else{
+            snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
+        }
+    }
 }
