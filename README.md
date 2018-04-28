@@ -2,7 +2,7 @@
 Project made with P5.js
 ## 1st step MAKING GAME (done)
 In first step I made simple snake game, you can test it here http://htmlpreview.github.io/?https://github.com/KrzysztofZer/Snake_controlled_by_AI/blob/master/Snake/index.html
-###Multi platform
+### Multi platform
 * Desktop webbrowser, user control snake through pressing arrow keys on keyboard
 ![alt text](https://image.ibb.co/fyCXJc/Capture.png)
 * Mobile, user have displayed buttons under screen with game
