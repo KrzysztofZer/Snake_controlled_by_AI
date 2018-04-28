@@ -21,7 +21,7 @@ function setup(){
 
 function draw(){
         background(50);
-    text(score,620,15);   
+    text(score,610,15);   
     drawSprites();
            if (millis() - time >= speed)
     {
