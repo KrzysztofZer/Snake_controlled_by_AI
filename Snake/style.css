@@ -3,12 +3,7 @@ table{
     top: 235px; left: 635px;
 }
 
-th{
-height: 25px;
-            width: 25px;
-}
-td{
-    height: 25px;
-            width: 25px;
-
+input{
+height: 30px;
+            width: 90px;
 }
