@@ -18,8 +18,11 @@ function setup(){
     
     //check if mobile and add buttons if it is
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-//document.getElementById('mobile').innerHTML = "<table><tr><th></th><th><input id=\"UP\" type=\"button\" value=\"UP\" onclick=\"mobileUp();\"/></th><th></th></tr><tr><td><input id=\"LEFT\" type=\"button\" value=\"LEFT\" onclick=\"mobileLeft();\" /></td><td><input id=\"DOWN\" type=\"button\" value=\"DOWN\" onclick=\"mobileDown();\" /></td><td><input id=\"RIGHT\" type=\"button\" value=\"RIGHT\" onclick=\"mobileRight();\" /></td></tr></table>"
-$("body").append("<table><tr><th></th><th><input id=\"UP\" type=\"button\" value=\"UP\" onclick=\"mobileUp();\"/></th><th></th></tr><tr><td><input id=\"LEFT\" type=\"button\" value=\"LEFT\" onclick=\"mobileLeft();\" /></td><td><input id=\"DOWN\" type=\"button\" value=\"DOWN\" onclick=\"mobileDown();\" /></td><td><input id=\"RIGHT\" type=\"button\" value=\"RIGHT\" onclick=\"mobileRight();\" /></td></tr></table>");
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.id = "mobile";
+    document.getElementById('mobile').innerHTML = "<table><tr><th></th><th><input id=\"UP\" type=\"button\" value=\"UP\" onclick=\"mobileUp();\"/></th><th></th></tr><tr><td><input id=\"LEFT\" type=\"button\" value=\"LEFT\" onclick=\"mobileLeft();\" /></td><td><input id=\"DOWN\" type=\"button\" value=\"DOWN\" onclick=\"mobileDown();\" /></td><td><input id=\"RIGHT\" type=\"button\" value=\"RIGHT\" onclick=\"mobileRight();\" /></td></tr></table>"
+
     }
 
 
