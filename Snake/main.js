@@ -15,9 +15,14 @@ function setup(){
     createWall();
     snake[0].shadowColor = color(255)
     fill(255);
+    
+    //check if mobile and add buttons if it is
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+document.getElementById('mobile').innerHTML = "<table><tr><th></th><th><input id=\"UP\" type=\"button\" value=\"UP\" onclick=\"mobileUp();\"/></th><th></th>/tr><tr><td><input id=\"LEFT\" type=\"button\" value=\"LEFT\" onclick=\"mobileLeft();\" /></td><td><input id=\"DOWN\" type=\"button\" value=\"DOWN\" onclick=\"mobileDown();\" /></td><td><input id=\"RIGHT\" type=\"button\" value=\"RIGHT\" onclick=\"mobileRight();\" /></td></tr></table>"}
 
 
 }
+                        
 
 function draw(){
         background(50);
@@ -165,4 +170,24 @@ function oneMove(){
             snake[i].position = createVector(snake[i-1].position.x,snake[i-1].position.y)
         }
     }
+}
+function mobileRight(){
+    if (snakeDiraction!='l'){
+    snakeDiraction = 'r';
+}
+}
+function mobileLeft(){
+        if (snakeDiraction!='r'){
+    snakeDiraction = 'l';
+}
+}
+function mobileUp(){
+        if (snakeDiraction!='d'){
+    snakeDiraction = 'u';
+}
+}
+function mobileDown(){
+        if (snakeDiraction!='u'){
+    snakeDiraction = 'd';
+}
 }
