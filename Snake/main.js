@@ -31,20 +31,20 @@ function draw(){
 }
 
 function keyPressed(){
-if (keyCode === RIGHT_ARROW){
+if (keyCode === RIGHT_ARROW&& snakeDiraction!='l'){
     snakeDiraction = 'r';
 }
 
-if (keyCode === LEFT_ARROW){
+if (keyCode === LEFT_ARROW&& snakeDiraction!='r'){
         snakeDiraction = 'l';
 
 }
     
-if (keyCode === DOWN_ARROW){
+if (keyCode === DOWN_ARROW&& snakeDiraction!='u'){
         snakeDiraction = 'd';
 }
     
-if (keyCode === UP_ARROW){
+if (keyCode === UP_ARROW&& snakeDiraction!='d'){
         snakeDiraction = 'u';
 }}
 
@@ -69,7 +69,7 @@ function createWall (){
 }
 
 function addSnake(){
-    snake.push(createSprite(snake[snake.length-1].position.x-30,offsetY,diameter,diameter));
+    snake.push(createSprite(-60,-60,diameter,diameter));
         snake[snake.length-1].shadowColor = color(255);
         fill(255);
 }
